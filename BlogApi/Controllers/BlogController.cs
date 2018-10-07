@@ -34,9 +34,11 @@ namespace BlogApi.Controllers
         }
 
         // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(long id, [FromBody] string value)
+        [HttpPut]
+        public void Put([FromBody] Blog blog)
         {
+            BlogStaticTest.UpdateBlog
+                (blog);
         }
 
         // DELETE api/values/5

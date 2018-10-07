@@ -34,6 +34,22 @@ namespace BlogApi
             BlogList.Add(blog);
         }
 
+        public static void UpdateBlog(Blog blog)
+        {
+            if (blog.id > 0)
+            {
+                Blog blogeski = BlogList.Where(x => x.id == blog.id).FirstOrDefault();
+
+              
+
+                blogeski.categories = blog.categories;
+                blogeski.content = blog.content;
+                blogeski.title = blog.title;
+                
+            }
+            
+        }
+
         public static Blog GetBlog(long id)
         {
             return BlogList.Where(x => x.id == id).FirstOrDefault();
